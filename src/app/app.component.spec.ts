@@ -1,6 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-
+declare module "@angular/core" {
+  interface ModuleWithProviders<T = any> {
+      ngModule: Type<T>;
+      providers?: Provider[];
+  }
+}
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({

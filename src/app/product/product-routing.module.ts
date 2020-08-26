@@ -18,7 +18,7 @@ const productRoutes: Routes = [
       },
       {
         path: ':id',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         children: [
           {
             path: '',
@@ -27,7 +27,7 @@ const productRoutes: Routes = [
           {
             path: 'edit',
             component: ProductEditComponent,
-            canDeactivate: [CheckEditGuard]
+            // canDeactivate: [CheckEditGuard]
           }
         ]
       }

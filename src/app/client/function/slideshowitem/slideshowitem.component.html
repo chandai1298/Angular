@@ -1,0 +1,6 @@
+<div #slideshowitem
+  [@scrollTrigger]="{ value : show, params : { initEnterTranslate : enterInitPosition, exitTranslate : exitPosition }}"
+  class="slide-show-item" *ngIf="show">
+  <p>You can check out basic options And with angularjs it also contain</p>
+  <ng-content></ng-content>
+</div>
