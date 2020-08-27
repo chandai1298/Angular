@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { AngularFireStorageModule, AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,9 +32,11 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    SharedModule.forRoot()
-  ],
-  providers: [],
+    SharedModule.forRoot(),
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "learning")
+  ]
+  ,providers: [AngularFireStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
