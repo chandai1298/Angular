@@ -6,6 +6,9 @@ import { Routes, RouterModule } from "@angular/router";
 // import { AuthGuard } from './guards/auth.guard';
 import { ProfileComponent } from "../client/pages/profile/profile/profile.component";
 import { ClientComponent } from "./client.component";
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { Part1Component } from './main/practicesB1/part1/part1.component';
 // import { HomeComponent } from './player/home/home.component';
 // import { AlbumComponent } from './player/album/album.component';
 // import { TracksComponent } from './player/tracks/tracks.component';
@@ -21,7 +24,23 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ProfileComponent
+        component: ProfileComponent,
+        
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+        // canDeactivate: [CheckEditGuard]
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+        // canDeactivate: [CheckEditGuard]
+      },
+      {
+        path: 'part1',
+        component: Part1Component,
+        // canDeactivate: [CheckEditGuard]
       }
     ]
   }
@@ -29,7 +48,9 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule]
 })
 export class ClientRoutingModule {}

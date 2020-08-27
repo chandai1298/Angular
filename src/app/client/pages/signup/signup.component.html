@@ -1,0 +1,36 @@
+<div class="main__container">
+    <div class="signup-card">
+  
+      <main class="signup-content">
+        <span class="signup-header">Signup</span>
+        <!-- signup form -->
+  
+        <form class="signup-form" [formGroup]='fg' *ngFor="let fg of userForm.controls"   (submit)="onSubmit(fg)" >
+          <input type="hidden" formControlName="id" value="0">
+          <input type="hidden" formControlName="firstName" value="0">
+          <input type="hidden" formControlName="lastName" value="0">
+          <input type="email" autofocus placeholder="Email" class="signup-input" formControlName="username" required>
+          <input type="password" placeholder="Password" formControlName="password" class="signup-input" minlength="6"
+                value="000" required>
+          <input type="password" placeholder="Confirm Password" formControlName="password" class="signup-input" minlength="6"
+                value="000" required>
+          <input type="submit" name="submit" value="Signup" class="signup-btn" >
+        </form>
+        <div class="login-link-wrapper">
+          <span class="login-notice">Already Have an account?</span>
+          <a class="login-link" routerLink="/login" routerLinkActive='active'>login</a>
+        </div>
+  
+      </main>
+  
+      <!-- linking to signup -->
+      <aside class="signup-aside">
+        <div class="signup-aside-overlay"></div>
+        <h1 class="signup-welcome-text">Join Minimus Today!</h1>
+        <hr class="signup-aside-hr">
+      </aside>
+    </div>
+  </div>
+  
+  
+  

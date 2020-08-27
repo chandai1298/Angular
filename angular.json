@@ -135,5 +135,10 @@
       }
     }
   },
-  "defaultProject": "angular-router"
+  "defaultProject": "angular-router",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  }
 }

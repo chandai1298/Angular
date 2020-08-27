@@ -1,0 +1,49 @@
+<mat-toolbar role="footer" class="mat-elevation-z3">
+
+    <audio controls #audioplay id="myAudioTag" (ended)="playerEnded()">
+        <!-- <source src="{{tmp['sound']}}" type="audio/mp3"> -->
+    </audio>
+</mat-toolbar>
+<ngb-carousel #carousel (slide)="onSlideChange($event)" [showNavigationArrows]="showNavigationArrows"
+    [showNavigationIndicators]="showNavigationIndicators" [interval]="false">
+    <ng-template ngbSlide *ngFor="let tmp of tmps; let i = index" name="fieldName1" ngDefaultControl id="{{tmp['sound']}}">
+
+        <!-- <mat-toolbar role="footer" class="mat-elevation-z3">
+            
+            <audio controls #audioplay{{i}} id="myAudioTag" src="{{tmp['sound']}}" (ended)="playerEnded()">
+            </audio>
+          </mat-toolbar> -->
+
+        <h4 class="card-title" id="Question">{{tmp['question']}}</h4>
+
+
+        <img #image class="hinh" src="{{tmp['image']}}" alt="">
+        <p>{{timeLeft}} Seconds Left....</p>
+        <label id="example-radio-group-label">Pick your favorite season</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" name="fieldName" ngDefaultControl
+            class="example-radio-group" [(ngModel)]="favoriteSeason">
+            <mat-radio-button class="example-radio-button" [value]="tmp['dapanA']">
+                {{tmp['dapanA']}}
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" [value]="tmp['dapanB']">
+                {{tmp['dapanB']}}
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" [value]="tmp['dapanC']">
+                {{tmp['dapanC']}}
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" [value]="tmp['dapanD']">
+                {{tmp['dapanD']}}
+            </mat-radio-button>
+        </mat-radio-group>
+        <div>Your favorite season is: {{favoriteSeason}}</div>
+    </ng-template>
+</ngb-carousel>
+
+<hr>
+
+<div class="btn-group" role="group" aria-label="Carousel toggle controls">
+    <button type="button" (click)="showNavigationArrows = !showNavigationArrows"
+        class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
+    <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators"
+        class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
+</div>
