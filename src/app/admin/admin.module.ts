@@ -28,9 +28,10 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AdduserComponent } from './adduser/adduser.component';
 import { ContentComponent } from './content/content.component';
-
+import { LoginComponent } from './login/login.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
 @NgModule({
-  declarations: [AdminComponent, UserComponent,AdduserComponent,ContentComponent],
+  declarations: [AdminComponent, UserComponent,AdduserComponent,ContentComponent,LoginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -47,7 +48,7 @@ import { ContentComponent } from './content/content.component';
     MatCardModule,
     MatRippleModule,
     MatRadioModule,
-
+    JwPaginationModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "learning"),
     NgbModule,
