@@ -22,8 +22,8 @@ export class SignupComponent implements OnInit {
   addUserForm(){
     this.userForm.push(this.fb.group({
       id:[0],
-      firstName:[''],
-      lastName:[''],
+      name:[''],
+      email:[''],
       username:[''],
       password:['']
 
@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
   checkError = false; 
 
   onSubmit(form:FormGroup){
+    alert("success"+JSON.stringify(form.value));
     this.service.checkUserName(form.value).subscribe((res : any) => {
       if(!res){
       this.service.signup(form.value).subscribe(
