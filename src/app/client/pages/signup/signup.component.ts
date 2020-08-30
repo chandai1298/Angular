@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
     private service: AuthenServiceService,
     private router: Router
   ) {}
-
+  nameuser = 2;
   ngOnInit(): void {
     this.addUserForm();
   }
@@ -38,8 +38,7 @@ export class SignupComponent implements OnInit {
     console.log(this.cssconfirmPass);
   }
   checkPassword() {
-    console.log(this.pass);
-    this.pass;
+    if(this.pass=="") this.nameuser =2;
   }
   omit_special_char(e) {
     var k = e.keyCode;
@@ -73,7 +72,8 @@ export class SignupComponent implements OnInit {
     this.service.checkUserName(this.obj).subscribe(
       (res: any) => {
         if (!res) {
-        } else alert("tài khoản đã được đăng ký");
+          this.nameuser = 1;
+        } else this.nameuser = 3;
       },
       (err) => {
         alert("lỗi" + JSON.stringify(err));
