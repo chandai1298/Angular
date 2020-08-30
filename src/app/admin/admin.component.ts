@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-
+  name:string;
   constructor() { }
 
   ngOnInit() {
+    this.name =localStorage.getItem('name');
   }
 
 }

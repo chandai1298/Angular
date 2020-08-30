@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 import { AngularFireStorageModule, AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,8 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     SharedModule.forRoot(),
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "learning")
+    AngularFireModule.initializeApp(environment.firebaseConfig, "learning"),
+    MDBBootstrapModule.forRoot()
   ]
   ,providers: [AngularFireStorage],
   bootstrap: [AppComponent]

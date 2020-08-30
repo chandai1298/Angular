@@ -30,8 +30,10 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { ContentComponent } from './content/content.component';
 import { LoginComponent } from './login/login.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { QuestionComponent } from './Tables/question/question.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
-  declarations: [AdminComponent, UserComponent,AdduserComponent,ContentComponent,LoginComponent],
+  declarations: [AdminComponent, UserComponent,AdduserComponent,ContentComponent,LoginComponent, QuestionComponent, DashboardComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

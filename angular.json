@@ -30,7 +30,14 @@
               "src/styles.scss",
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
-              "node_modules/admin-lte/docs_html/assets/css/adminlte.css"
+              "node_modules/admin-lte/docs_html/assets/css/adminlte.css",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+    "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+    "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+    "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+    "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
+    "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
+    "node_modules/animate.css/animate.css"
             ],
             "scripts": [
               "node_modules/admin-lte/plugins/jquery/jquery.js",
@@ -43,7 +50,9 @@
               "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js",
               "node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.js",
               "node_modules/admin-lte/plugins/chart.js/Chart.js",
-              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
+              "node_modules/admin-lte/dist/js/pages/dashboard2.js",
+              "node_modules/chart.js/dist/Chart.js",
+  "node_modules/hammerjs/hammer.min.js"
             ]
           },
           "configurations": {
