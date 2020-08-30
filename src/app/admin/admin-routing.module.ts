@@ -3,43 +3,44 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { AdminComponent } from "./admin.component";
 import { UserComponent } from "./user/user.component";
-import { ContentComponent } from './content/content.component';
-import { LoginComponent } from './login/login.component';
-import { AdduserComponent } from './adduser/adduser.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContentComponent } from "./content/content.component";
+import { LoginComponent } from "./login/login.component";
+import { AdduserComponent } from "./adduser/adduser.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { UsersComponent } from "./tables/users/users.component";
 
 const routes: Routes = [
-      {path: '',
-      component: AdminComponent,
-      children: [
-        {
-          path: 'users',
-          component: UserComponent,
-          
-        },
-        {
-          path: 'login',
-          component: LoginComponent,
-          
-        },
-        {
-          path: 'index',
-          component: ContentComponent,
-        },
-        {
-          path: 'adduser',
-          component: AdduserComponent,
-        }
-        ,
-        {
-          path: '',
-          component: DashboardComponent,
-        }
-      ]
-    }
-  ];
-  
-
+  {
+    path: "",
+    component: AdminComponent,
+    children: [
+      {
+        path: "users",
+        component: UserComponent,
+      },
+      {
+        path: "login",
+        component: LoginComponent,
+      },
+      {
+        path: "index",
+        component: ContentComponent,
+      },
+      {
+        path: "adduser",
+        component: AdduserComponent,
+      },
+      {
+        path: "",
+        component: DashboardComponent,
+      },
+      {
+        path: "listusers",
+        component: UsersComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

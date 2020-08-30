@@ -1,18 +1,13 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  SimpleChanges,
-  OnChanges,
-} from "@angular/core";
-import { GetAPIService } from "../services/get-api.service";
+import { Component, OnInit } from '@angular/core';
+import { GetAPIService } from '../../services/get-api.service';
+
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"],
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class UsersComponent implements OnInit {
+
   items: any;
   pageOfItems: Array<any>;
   constructor(private configService: GetAPIService) {}

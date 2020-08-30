@@ -6,7 +6,25 @@
     align-items: center;
     overflow: hidden;
   }
+  /* .ng-valid[required], .ng-valid.required  {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2rem rgb(30, 255, 0);
+    width: 80%;
+  }
   
+  .ng-invalid:not(form)  {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2rem rgb(255, 38, 0);
+    width: 80%;
+  } */
   .signup-card {
     position: relative;
     display: flex;
@@ -20,7 +38,7 @@
   
   .signup-header {
     position: absolute;
-    top: 6rem;
+    top: 2rem;
     font-size: 2.5rem;
     color: #0c1066;
     letter-spacing: 0.2rem;
@@ -147,4 +165,30 @@
     color: #ff3a82;
     margin-left: 1rem;
   }
-  
+  .example-class {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2rem rgb(255, 0, 0);
+    width: 80%;
+  }
+  .normal-class {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2rem rgba(255, 0, 0, 0);
+    width: 80%;
+  }
+  .other-class {
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2rem rgb(30, 255, 0);
+    width: 80%;
+  }
