@@ -14,7 +14,7 @@
           'example-class': nameuser===3,
           'signup-input': nameuser===2,
           'other-class': nameuser===1
-        }"  pattern="/[A-Z]{5}\d{4}[A-Z]{1}/i">
+        }" (keypress)="omit_special_char($event)" >
         <label *ngIf="nameuser===3"> Username đã được đăng ký</label>
         <input type="password" placeholder="Password" formControlName="password" class="signup-input" minlength=6
           value="000" required [(ngModel)]="pass" (keyup)="checkPassword()" (keypress)="omit_special_char($event)">

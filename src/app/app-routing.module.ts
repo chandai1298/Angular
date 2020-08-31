@@ -3,18 +3,27 @@ import { RouterModule, Routes, PreloadAllModules } from "@angular/router";
 
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { ClientComponent } from "./client/client.component";
+import { LoginComponent } from './client/pages/login/login.component';
+import { SignupComponent } from './client/pages/signup/signup.component';
+import { AuthenGuard } from './guard/authen.guard';
 
 const routes: Routes = [
-  
+  {
+    path: "login",
+    component: LoginComponent,
+    // canActivate: [AuthenGuard],
+  },
+  {
+    path: "signup",
+    component: SignupComponent,
+    // canActivate: [AuthenGuard],
+  },
   {
     path: "",
     redirectTo: "client",
     pathMatch: "full",
   },
-  // {
-  //   path: "**",
-  //   component: NotFoundComponent,
-  // },
+  
   {
     path: "client",
     loadChildren: () =>

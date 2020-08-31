@@ -1,8 +1,10 @@
 export class User {
-    Id: String;
-    FirstName : String;
-    LastName : String;
-    Username : String;
-    Password : String;
-    token : String;
+  id: number;
+  name: string;
+  username: string;
+  password: string;
+  email: string;
+  avatar: string;
+  roleId: number;
+  isActive: number;
 }

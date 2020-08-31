@@ -29,4 +29,6 @@ export class GetDataserviesService {
   getListQuestion(){
     return this.http.post('https://localhost:44376/Home/getQuestionPart',this.obj);
   }
+
+  
 }

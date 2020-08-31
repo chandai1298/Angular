@@ -1,14 +1,14 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { AuthenServiceService } from '../../services/authen/authen-service.service';
-import { NgForm, FormGroup, FormArray, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import { JsonPipe } from '@angular/common';
+import { Component, OnInit, Inject } from "@angular/core";
+import { AuthenServiceService } from "../../services/authen/authen-service.service";
+import { NgForm, FormGroup, FormArray, FormBuilder } from "@angular/forms";
+import { Router } from "@angular/router";
+import { JsonPipe } from "@angular/common";
 import {
   MatDialog,
   MAT_DIALOG_DATA,
   MatDialogRef,
-} from '@angular/material/dialog';
-import { DialogErrorComponent } from './dialog-error/dialog-error.component';
+} from "@angular/material/dialog";
+import { DialogErrorComponent } from "./dialog-error/dialog-error.component";
 
 export interface DialogData {
   animal: string;
@@ -16,23 +16,28 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
   errorMessage;
   animal: string;
   name: string;
-  
+
   constructor(
     private fb: FormBuilder,
     private service: AuthenServiceService,
     private router: Router,
     public dialog: MatDialog
-  ) {}
+  ) {
+   
+  }
 
   ngOnInit(): void {
+    // if (this.service.currentUserValue) {
+    //   this.router.navigate(["/"]);
+    // }
     this.addUserForm();
   }
   userForm: FormArray = this.fb.array([]);
@@ -41,33 +46,34 @@ export class LoginComponent implements OnInit {
     this.userForm.push(
       this.fb.group({
         id: [0],
-        firstName: [''],
-        lastName: [''],
-        username: [''],
-        password: [''],
+        firstName: [""],
+        lastName: [""],
+        username: [""],
+        password: [""],
       })
     );
   }
   checkError = false;
   onSubmit(form: NgForm) {
-    this.service.checkLogin(form.value).subscribe(
+    this.service.login(form.value).subscribe(
+      // this.service.checkLogin(form.value).subscribe(
       (res) => {
-        this.name = res['username'];
+        this.name = res["username"];
         this.checkError = false;
-        if (res['isActive'] == 1) {
-
-          localStorage.setItem('token', res['token']);
-          localStorage.setItem('userName', res['username']);
-          localStorage.setItem('name', res['name']);
-          localStorage.setItem('email', res['email']);
-          localStorage.setItem('avatar', res['avatar']);
-          localStorage.setItem('roleId', res['roleId']);
-          if(res['roleId'] == 2 ){
-
-          this.router.navigate(['']);
-        }else {
-          this.router.navigate(['/admin']);
-        }
+        if (res["isActive"] == 1) {
+          localStorage.setItem("currentUser", JSON.stringify(res));
+          localStorage.setItem("token", res["token"]);
+          localStorage.setItem("userName", res["username"]);
+          localStorage.setItem("name", res["name"]);
+          localStorage.setItem("email", res["email"]);
+          localStorage.setItem("avatar", res["avatar"]);
+          localStorage.setItem("roleId", res["roleId"]);
+          if (res["roleId"] == 2) {
+            this.router.navigate([""]);
+          } else {
+            console.log("admin");
+            this.router.navigate(["/admin"]);
+          }
         } else {
           this.openDialog();
         }
@@ -75,7 +81,7 @@ export class LoginComponent implements OnInit {
       (err) => {
         this.checkError = true;
 
-        this.errorMessage = JSON.stringify(err['error']['message']);
+        this.errorMessage = JSON.stringify(err["error"]["message"]);
         console.log(this.checkError);
         //setTimeout(() => this.errorMessage = '', 2000);
       }
@@ -94,12 +100,11 @@ export class LoginComponent implements OnInit {
   setCurrentClasses() {
     // CSS classes: added/removed per current state of component properties
     return {
-      'form-submit-error': this.checkError,
-      'login-input': !this.checkError,
+      "form-submit-error": this.checkError,
+      "login-input": !this.checkError,
     };
   }
 
-  
   openDialog(): void {
     const bodyRect = document.body.getBoundingClientRect();
     const right = 300;
@@ -111,7 +116,7 @@ export class LoginComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log("The dialog was closed");
       this.animal = result;
     });
   }

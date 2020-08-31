@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   name:string;
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit() {
     this.name =localStorage.getItem('name');

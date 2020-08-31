@@ -26,7 +26,12 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private service: AuthenServiceService,
     private router: Router
-  ) {}
+  ) {
+    // if (this.service.currentUserValue) {
+    //   this.router.navigate(["/"]);
+    // }
+    
+  }
   nameuser = 2;
   ngOnInit(): void {
     this.addUserForm();

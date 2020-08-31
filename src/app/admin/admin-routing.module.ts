@@ -8,11 +8,16 @@ import { LoginComponent } from "./login/login.component";
 import { AdduserComponent } from "./adduser/adduser.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { UsersComponent } from "./tables/users/users.component";
+import { RoleGuardGuard } from '../guard/role-guard.guard';
 
 const routes: Routes = [
   {
     path: "",
     component: AdminComponent,
+    canActivate: [RoleGuardGuard], 
+    data: { 
+      expectedRole: '1'
+    },
     children: [
       {
         path: "users",

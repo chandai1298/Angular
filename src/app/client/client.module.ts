@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedModule } from '../shared/shared.module';
 import { ProfileComponent } from './pages/profile/profile/profile.component';
 import { ClientComponent } from './client.component';
 import { ClientRoutingModule } from './client-routing.module';
@@ -17,23 +16,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MaterialModule } from '../material.module';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
 import { Part1Component } from './main/practicesB1/part1/part1.component';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { NgbModule, NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { Part2Component } from './main/practicesB1/part2/part2.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
   declarations: [
 
     ClientComponent,
-    LoginComponent,
-    SignupComponent,
+   
     Part1Component,
     Part2Component,
     ProfileComponent
