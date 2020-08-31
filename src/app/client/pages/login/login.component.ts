@@ -55,14 +55,19 @@ export class LoginComponent implements OnInit {
         this.name = res['username'];
         this.checkError = false;
         if (res['isActive'] == 1) {
+
           localStorage.setItem('token', res['token']);
           localStorage.setItem('userName', res['username']);
           localStorage.setItem('name', res['name']);
           localStorage.setItem('email', res['email']);
           localStorage.setItem('avatar', res['avatar']);
           localStorage.setItem('roleId', res['roleId']);
+          if(res['roleId'] == 2 ){
 
           this.router.navigate(['']);
+        }else {
+          this.router.navigate(['/admin']);
+        }
         } else {
           this.openDialog();
         }
@@ -76,7 +81,16 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
+  omit_special_char(e) {
+    var k = e.keyCode;
+    return (
+      (k > 64 && k < 91) ||
+      (k > 96 && k < 123) ||
+      k == 8 ||
+      k == 32 ||
+      (k >= 48 && k <= 57)
+    );
+  }
   setCurrentClasses() {
     // CSS classes: added/removed per current state of component properties
     return {
