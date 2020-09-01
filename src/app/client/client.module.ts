@@ -30,7 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
    
     Part1Component,
     Part2Component,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

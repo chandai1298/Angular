@@ -25,7 +25,6 @@ const routes: Routes = [
       expectedRole: '2'
     }, 
     children: [
-      
       {
         path: "",
         component: ProfileComponent,
