@@ -12,7 +12,10 @@ import { BehaviorSubject, Observable } from "rxjs";
 })
 export class AuthenServiceService {
   formData: User;
-  readonly rootUrl = "https://localhost:44376/Home/";
+  readonly rootUrl = "https://localhost:5001/Home/";
+  // readonly rootUrl = "https://192.168.0.102:5001/Home/";
+  rootUrl2 = "https://localhost:5001/Users";
+  // rootUrl2 = "https://192.168.0.102:5001/Users";
 
   constructor(
     private fb: FormBuilder,
@@ -42,14 +45,11 @@ export class AuthenServiceService {
   }
 
   checkLogin(formData: User) {
-    return this.http.post(
-      "https://localhost:44376/Users/authenticate",
-      formData
-    );
+    return this.http.post(`${this.rootUrl2}/authenticate`, formData);
   }
 
   signup(formData) {
-    return this.http.post("https://localhost:44376/Users/signup", formData);
+    return this.http.post(`${this.rootUrl2}/signup`, formData);
   }
 
   logoutUser() {
@@ -66,14 +66,11 @@ export class AuthenServiceService {
   }
 
   checkUserName(formData) {
-    return this.http.post(
-      "https://localhost:44376/Users/checkUserName",
-      formData
-    );
+    return this.http.post(`${this.rootUrl2}/checkUserName`, formData);
   }
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-sign = false;
+  sign = false;
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
@@ -82,30 +79,29 @@ sign = false;
     return this.currentUserSubject.value;
   }
 
-
   public get isSign(): boolean {
     return this.sign;
   }
   login(formData: User) {
-    return this.http
-      .post<any>("https://localhost:44376/Users/authenticate", formData)
-      .pipe(
-        map((user) => {
-          // login successful if there's a jwt token in the response
-          if (user && user.token) {
-            this.sign = true;
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem("currentUser", JSON.stringify(user));
-            this.currentUserSubject.next(user);
-          }
+    return this.http.post<any>(`${this.rootUrl2}/authenticate`, formData).pipe(
+      map((user) => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          this.sign = true;
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem("currentUser", JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        }
 
-          return user;
-        })
-      );
+        return user;
+      })
+    );
   }
-  dic: any = {"limit": "10", "page": "4"};
+  dic: any = { limit: "10", page: "4" };
   check() {
-    return this.http.post<any>("http://4ad6badd2285.ngrok.io/getAllWords", this.dic);
+    return this.http.post<any>(
+      "http://4ad6badd2285.ngrok.io/getAllWords",
+      this.dic
+    );
   }
-  
 }

@@ -17,7 +17,8 @@ export class ClientComponent implements OnInit {
   darkModeActive: boolean;
   sub1;
   userEmail = localStorage.getItem("userName");
-  // @ViewChild('searchBox') 
+  avatar = localStorage.getItem("avatar");
+  // @ViewChild('searchBox')
   searchInput: ElementRef;
   // (keyup)="search(searchBox.value)"
 

@@ -30,18 +30,12 @@ export class LoginComponent implements OnInit {
     private service: AuthenServiceService,
     private router: Router,
     public dialog: MatDialog
-  ) {
-   
-  }
+  ) {}
 
   ngOnInit(): void {
-    // if (this.service.currentUserValue) {
-    //   this.router.navigate(["/"]);
-    // }
     this.addUserForm();
   }
   userForm: FormArray = this.fb.array([]);
-  //userForm: FormGroup;
   addUserForm() {
     this.userForm.push(
       this.fb.group({

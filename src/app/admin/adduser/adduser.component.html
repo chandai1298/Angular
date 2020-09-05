@@ -49,7 +49,7 @@
                                 <label class="custom-file-label" for="exampleInputFile">{{avatar}}</label>
                             </div>
                             <div class="input-group-append">
-                                <span *ngIf="avatar !== ''" class="input-group-text" id="" (click)="upload()" style="cursor: pointer;background-color: #28a745;">Upload</span>
+                                <span *ngIf="avatar !== '3'" class="input-group-text" id="" (click)="upload()" style="cursor: pointer;background-color: #28a745;">Upload</span>
                             </div>
                         </div>
 
@@ -80,7 +80,7 @@
                                 <!-- <option selected disabled >Select one</option> -->
                                 <option  *ngFor="let item of items" [value]="item.roleId">{{item.name}}</option>
                             </select>
-                            
+
                         </div>
                         <div class="form-group">
                             <input type="checkbox" id="IsActive" [checked]="IsActive" (change)="IsActive = !IsActive">

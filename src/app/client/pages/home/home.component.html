@@ -1,0 +1,31 @@
+<div id="mainHome">
+  <div id="mainHomeLeft">
+    <p>Ôn luyện TOEIC</p>
+    <div class="listBtn">
+      <div class="itemBtn" *ngFor="let lession of toeics">
+        <a routerLink="/client/toeic/{{ lession.id }}{{ lession.name }}">
+          <button class="itemBtnLession" [textContent]="lession.name"></button
+        ></a>
+      </div>
+    </div>
+    <p>Ôn luyện B1 Đại học Nông Lâm TPHCM</p>
+    <div class="listBtn">
+      <div class="itemBtn" *ngFor="let lession of b1s">
+        <a routerLink="/client/part/{{ lession.id }}{{ lession.name }}"
+          ><button class="itemBtnLession" [textContent]="lession.name"></button
+        ></a>
+      </div>
+    </div>
+    <p>Kiểm tra B1</p>
+    <div class="listBtn">
+      <div class="itemBtn" *ngFor="let lession of evaluations">
+        <a routerLink="/client/part/{{ lession.id }}{{ lession.name }}"
+          ><button class="itemBtnLession" [textContent]="lession.name"></button
+        ></a>
+      </div>
+    </div>
+  </div>
+  <div id="mainHomeRight">
+    <p>Tổng kết KN</p>
+  </div>
+</div>

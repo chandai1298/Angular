@@ -13,12 +13,10 @@ export class UploadService {
   SERVER_URL: string = "{Server URL}";
   constructor(private httpClient: HttpClient) {}
 
-  
-  
-public upload(formData) {
-      return this.httpClient.post<any>(this.SERVER_URL, formData, {
-        reportProgress: true,
-        observe: 'events'
-      });
+  public upload(formData) {
+    return this.httpClient.post<any>(this.SERVER_URL, formData, {
+      reportProgress: true,
+      observe: "events",
+    });
   }
 }

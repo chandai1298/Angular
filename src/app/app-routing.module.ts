@@ -11,19 +11,19 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent,
-    // canActivate: [AuthenGuard],
+    canActivate: [AuthenGuard],
   },
   {
     path: "signup",
     component: SignupComponent,
-    // canActivate: [AuthenGuard],
+    canActivate: [AuthenGuard],
   },
   {
     path: "",
     redirectTo: "client",
     pathMatch: "full",
   },
-  
+
   {
     path: "client",
     loadChildren: () =>
